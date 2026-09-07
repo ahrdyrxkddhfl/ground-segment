@@ -1,0 +1,22 @@
+satellites:
+  - name: KOMPSAT-5
+    norad_id: 39227
+    cospar_id: 2013-042A
+    payload: sar
+    constraints:
+      requires_daylight: false
+      requires_clear_sky: false
+
+  - name: KOMPSAT-3A
+    norad_id: 40536
+    cospar_id: 2015-014A
+    payload: optical_ir
+    constraints:
+      requires_daylight: true
+      requires_clear_sky: true
+
+tle:
+  source_url: "https://celestrak.org/NORAD/elements/gp.php"
+  cache_dir: data/tle
+  max_age_hours: 24
+  staleness_warn_days: 7
