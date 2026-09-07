@@ -71,7 +71,7 @@ def load_tle(path):
 
     Returns:
         EarthSatellite 인스턴스. `.name`에 카탈로그명이, `.epoch`에 TLE
-        기준 시각이 들어 있다.
+        기준 시각이 들어 있다. 카탈로그명의 "0 " 접두사는 제거된다.
 
     Raises:
         ValueError: 파일이 3행 형식이 아닐 때.
@@ -80,7 +80,14 @@ def load_tle(path):
     lines = [ln.rstrip() for ln in path.read_text(encoding="utf-8").splitlines() if ln.strip()]
     if len(lines) != 3:
         raise ValueError(f"TLE 파일이 3행이 아님: {path} ({len(lines)}행)")
+
     name, line1, line2 = lines
+    # Space-Track의 TLE_LINE0은 카탈로그명 행임을 나타내는 "0 " 접두사를 포함하고
+    # Celestrak은 붙이지 않는다. 수집 경로에 관계없이 같은 이름이 나오도록
+    # 소비 지점에서 정규화한다.
+    if name.startswith("0 "):
+        name = name[2:]
+
     return EarthSatellite(line1, line2, name, _timescale())
 
 

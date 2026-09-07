@@ -1,0 +1,14 @@
+station:
+  name: Jeju
+  latitude_deg: 33.4996
+  longitude_deg: 126.5312
+  elevation_m: 100
+
+visibility:
+  min_elevation_deg: 5.0
+  coarse_step_seconds: 60
+  fine_step_seconds: 1
+
+antenna:
+  count: 1
+  slew_seconds: 120
