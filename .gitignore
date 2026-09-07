@@ -4,3 +4,7 @@ __pycache__/
 .env
 data/
 *.duckdb
+*.egg-info/
+__pycache__/
+*.egg-info/
+__pycache__/

@@ -1,0 +1,5 @@
+git+https://github.com/ahrdyrxkddhfl/kpi-sentinel.git@v0.1.0
+skyfield
+duckdb
+streamlit
+matplotlib

@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ground-segment"
+version = "0.1.0"
+description = "다수 위성을 위한 지상 관제 파이프라인"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy",
+    "pyyaml",
+    "skyfield",
+    "requests",
+    "python-dotenv",
+    "kpi-sentinel",
+]
+
+[project.optional-dependencies]
+storage = ["duckdb"]
+dashboard = ["streamlit"]
+plot = ["matplotlib"]
+
+[tool.setuptools.packages.find]
+include = ["groundseg*"]
